@@ -39,7 +39,7 @@ export default class Signup extends Component {
     this.setState({
       [event.target.id]: event.target.value
     });
-  }
+  };
 
   handleSubmit = async event => {
     event.preventDefault();
@@ -48,7 +48,7 @@ export default class Signup extends Component {
 
     try {
       const newUser = await Auth.signUp({
-        username: this.state.email,
+        username: this.state.email.toLowerCase(),
         password: this.state.password
       });
       this.setState({
@@ -59,7 +59,7 @@ export default class Signup extends Component {
     }
 
     this.setState({ isLoading: false });
-  }
+  };
 
   handleConfirmationSubmit = async event => {
     event.preventDefault();
@@ -76,7 +76,7 @@ export default class Signup extends Component {
       alert(e.message);
       this.setState({ isLoading: false });
     }
-  }
+  };
 
   renderConfirmationForm() {
     return (
